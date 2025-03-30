@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinamento Técnico e de Relacionamento com Clientes | Ingressos Web</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 20px 0 10px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        ul, ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid var(--secondary);
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #555;
+            padding: 15px;
+            background-color: #f0f7ff;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 100;
+        }
+        
+        .download-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+        }
+        
+        .tooltip {
+            position: absolute;
+            right: 70px;
+            background: var(--dark);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        
+        .download-btn:hover .tooltip {
+            opacity: 1;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--dark);
+            color: white;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .download-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Treinamento Técnico e de Relacionamento com Clientes</h1>
+            <p>Ingressos Web - Padrões e Procedimentos</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <h2>Introdução</h2>
+            <h3>Objetivo do Programa de Treinamento Técnico</h3>
+            <p>O Treinamento Técnico visa preparar nossos colaboradores em todos os requisitos necessários para a realização de eventos. Entre os objetivos destacam-se:</p>
+            <ol>
+                <li>Fornecer ao colaborador conceitos fundamentais e visão sistêmica das práticas tecnológicas da <strong>Ingressos Web</strong> na realização de eventos.</li>
+                <li>Proporcionar ao colaborador o domínio dos processos de "pré-evento, evento e pós-evento".</li>
+                <li>Conduzir o colaborador à reflexão sobre o papel do profissional técnico da Ingressos Web e a necessidade do desenvolvimento de habilidades inerentes ao seu cargo.</li>
+            </ol>
+        </div>
+        
+        <div class="card">
+            <h2>Níveis Técnicos</h2>
+            <h3>GTE – Gestor Técnico de Eventos</h3>
+            <p>Os Gestores Técnicos – GTE's são os técnicos da Ingressos Web que detêm todo o conhecimento necessário e a visão gerencial para a realização de eventos. Entre as habilidades necessárias de um GTE, destacam-se:</p>
+            <ul>
+                <li>Domínio da Plataforma Ingressos Web e seus subsistemas</li>
+                <li>Gestão de redes</li>
+                <li>Gestão de servidores</li>
+                <li>Conhecimento em Sistemas Operacionais Windows, Linux e Mac</li>
+            </ul>
+            
+            <p>Os GTE's são responsáveis pela formação profissional de três níveis técnicos:</p>
+            <ol>
+                <li>Treinamento Técnico Júnior</li>
+                <li>Treinamento Técnico Sênior</li>
+                <li>Treinamento Técnico Pleno</li>
+            </ol>
+            
+            <p>Os GTE's trabalham para a <strong>Ingressos Web</strong> e atuam na realização dos eventos e nos treinamentos dos parceiros "White Label", TE's e Produtores.</p>
+            
+            <h3>TE – Técnicos de Eventos</h3>
+            <p>São os técnicos das categorias Pleno, Sênior e Júnior que detêm o conhecimento necessário para realização de eventos. Entre as habilidades necessárias para os TE's, destacam-se:</p>
+            <ul>
+                <li>Conhecimento da Plataforma <strong>Ingressos Web</strong> e seus subsistemas</li>
+                <li>Conhecimento básico em redes, servidores e Sistemas Operacionais Windows, Linux e Mac</li>
+            </ul>
+            
+            <p>Os TE's trabalham para a <strong>Ingressos Web</strong> e atuam na realização dos eventos.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Comportamento</h2>
+            <h3>Objetivo</h3>
+            <p>O objetivo é apresentar um conjunto de regras comportamentais condizentes com o padrão da empresa, visando manter a qualidade de nossos serviços e a harmonia no ambiente de trabalho interno e externo.</p>
+            <p>Muitas dessas regras não são impositivas, porém, os conceitos comportamentais visam contribuir para a qualidade na prestação do serviço aos nossos clientes, parceiros e colaboradores.</p>
+            
+            <div class="highlight">
+                <h4>Qual a importância dessas regras para o nosso cliente?</h4>
+                <h4>Qual a importância dessas regras para a empresa?</h4>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Para o cliente, a empresa é tudo aquilo que você faz...</h2>
+            <p>O profissional desta área precisa:</p>
+            <ul>
+                <li><strong>Ouvir e atender</strong> as necessidades do cliente e da empresa.</li>
+                <li>Ter habilidade na comunicação, ser claro e objetivo. Isto se deve ao fato de que esses profissionais estarão diariamente em contato com pessoas de diferentes perfis e expectativas.</li>
+                <li>Ter habilidade de verificação – capacidade de conversar com o cliente de forma a entender qual a sua real necessidade.</li>
+                <li>Saber resolver problemas.</li>
+                <li>Ter agilidade no atendimento.</li>
+                <li>Ser proativo – Capacidade de antecipar problemas ou necessidades.</li>
+                <li>Ser cooperativo – Que coopera com seus colegas, que ajuda sem ter sido solicitado.</li>
+                <li>Ter bom senso, saber lidar com clientes exige um nível de maturidade e segurança que permitam não envolver sentimentos e problemas pessoais no contato com o cliente.</li>
+                <li>Ter empatia, é ter a capacidade de colocar-se no lugar do outro, na busca do entendimento de uma situação.</li>
+                <li>Ser cortês, é ser gentil, educado e atento, demonstrando respeito e atenção ao cliente.</li>
+                <li>Ser flexível, ter habilidade de comportar-se adequadamente de acordo com a situação.</li>
+            </ul>
+            
+            <h3>Pontualidade</h3>
+            <div class="quote">
+                "A melhor maneira de chegar atrasado a um compromisso é fazer de tudo para chegar no horário."
+            </div>
+            <p>A pontualidade é uma das maneiras mais importantes de demonstrar interesse e respeito por um cliente.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Vestuário e Higiene Pessoal</h2>
+            <p><em>É imprescindível o uso de uniforme durante ações de campo.</em></p>
+            
+            <div class="grid">
+                <div>
+                    <h3>Itens obrigatórios:</h3>
+                    <ul>
+                        <li>Uso de crachá em local visível</li>
+                        <li>Camisa da empresa</li>
+                        <li>Calça jeans ou sarja</li>
+                        <li>Tênis, sapatênis ou bota de segurança quando necessário</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Devem ser evitados:</h3>
+                    <ul>
+                        <li>Bonés e afins</li>
+                        <li>Chinelos e sandálias</li>
+                        <li>Roupas em tons chamativos</li>
+                        <li>Calças largas</li>
+                        <li>Acessórios e roupas esportivas</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>É proibido:</h3>
+                    <ul>
+                        <li>O uso de uniforme em bares e afins</li>
+                        <li>O uso de uniforme em momentos de lazer</li>
+                        <li>O uso de uniforme portando qualquer tipo de bebida alcoólica</li>
+                        <li>O uso do crachá ou do nome da empresa em benefício próprio para acesso em shows, bares e afins</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Postura Durante o Evento</h2>
+            
+            <div class="grid">
+                <div>
+                    <h3>Deve ser evitado:</h3>
+                    <ul>
+                        <li>Conversas alheias ao profissional com outros terceirizados</li>
+                        <li>Uso excessivo do telefone celular em caráter pessoal</li>
+                        <li>Fumar em ambiente coberto</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>É proibido:</h3>
+                    <ul>
+                        <li>Guardar ou portar ingressos do evento</li>
+                        <li>Ausentar-se do local de trabalho</li>
+                        <li>Consumir bebidas alcoólicas</li>
+                        <li>Guardar, contar, emprestar ou tocar no dinheiro da venda de ingressos sem autorização do Produtor ou Responsável da Bilheteria</li>
+                        <li>Permanecer ocioso dentro da bilheteria</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Plataforma Ingressos Web</h2>
+            <p>A Ingressos Web é uma plataforma autogerenciável, responsável pelo controle de todas as operações do Grupo e seus Parceiros "White Label". Sua principal característica é a forma como se apresenta, pois sua interface gráfica é uniforme e totalmente sugestiva.</p>
+            <p>Com ela é possível gerenciar à distância todo o controle de vendas e de acesso para qualquer evento realizado. Sendo a principal base operacional do Grupo, assume um papel muito importante dentro da organização, pois é com ela que distribuímos toda a nossa base de serviços e demandas de eventos.</p>
+            <p>A Plataforma Ingressos Web comanda toda a operação e gestão do processo de controle de acesso. Nela são realizados:</p>
+            <ul>
+                <li>Cadastros dos eventos</li>
+                <li>Cadastro de ingressos</li>
+                <li>Promoter</li>
+                <li>Ativação dos pontos de venda antecipado e de bilheteria</li>
+                <li>Validação</li>
+                <li>Relatórios em tempo real</li>
+            </ul>
+            
+            <h3>Homologação de PDV</h3>
+            <p>Trata-se da aprovação do ponto de venda por parte da Equipe de Suporte junto à Equipe Técnica para que o estabelecimento possa receber a instalação e realizar a venda dos ingressos para o evento já negociado.</p>
+            <p>A homologação poderá ocorrer por meio de ligação telefônica ou visita técnica para confirmação dos seguintes itens:</p>
+            <ol type="I">
+                <li>Celular com WhatsApp da loja para realizar um pré-cadastro para acesso ao perfil de venda do PDV.</li>
+                <li>Internet disponível e sem bloqueios para realização da operação de venda.</li>
+                <li>Horário mais apropriado para que o estabelecimento possa receber o técnico para instalação e treinamento. "Em caso de envio, o mesmo será instalado pelo responsável do evento, no qual, o treinamento será realizado via telefone".</li>
+            </ol>
+            
+            <div class="highlight">
+                <h4>Informações Complementares:</h4>
+                <p>Em caso de utilização de Firewall na rede, liberar o domínio: "https://ticketme-api.herokuapp.com"</p>
+            </div>
+            
+            <h3>SR – Solicitação de Recursos (Procedimento)</h3>
+            <p><em>O que é a SR?</em></p>
+            <p>Sempre que um funcionário da empresa necessita executar uma tarefa externa tais como: Instalação, manutenção, visita técnica ou a realização de um evento, o Gestor do setor irá fazer uma SR e encaminhá-la para o Diretor de Operações ou, quando ausente, direto para o Departamento Financeiro para que os valores possam ser disponibilizados para a execução das tarefas.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Planejamento do Evento</h2>
+            <p>O planejamento do evento é realizado junto ao produtor, com base nas informações repassadas pelo Comercial responsável do evento. Devem ser solicitadas todas as informações necessárias para a realização do evento, entre elas:</p>
+            
+            <ul>
+                <li><strong>Expectativa de Público</strong> – Analisar se as portarias, bilheterias e acessos condizem com a expectativa de público do evento.</li>
+                <li><strong>Quantidade de Portões de Acesso e de Bilheterias</strong> – Verificar se a quantidade de portões e de bilheterias é suficiente, se está de acordo com o que foi tratado comercialmente, confirmar a quantidade de equipamentos para ambos, bobinas, informar a necessidade de Internet Wi-Fi para os equipamentos de Venda e Validação. "Obs.: Operacional que irá operar na venda e validação são de responsabilidade do contratante."</li>
+                <li><strong>Horários do Evento</strong> – Confirmar os horários de funcionamento do evento.</li>
+                <li><strong>Credenciamento</strong> – Se houver, confirmar o tipo de credenciamento e verificar se está tudo dentro do cronograma.</li>
+                <li><strong>Ingressos especiais</strong> – Verificar se existe algum ingresso especial, com emissão de duas vias, com liberação em horários pré-determinados, etc.</li>
+            </ul>
+            
+            <h3>Logística</h3>
+            <p>A logística de viagem para a realização de eventos é dada seguindo os seguintes passos:</p>
+            <ol>
+                <li>Checar as informações repassadas pelo comercial do evento, ligar para o produtor para obter maiores detalhes.</li>
+                <li>Gestor deve verificar e preencher a SR com todos os recursos e informações necessárias para a realização do evento (valores, datas, técnicos, hospedagem, alimentação, transporte, etc.).</li>
+                <li>Conferir e testar os equipamentos.</li>
+                <li>Armazenar adequadamente e transportar os equipamentos até o destino.</li>
+            </ol>
+            
+            <h3>Execução do Evento</h3>
+            <ul>
+                <li>Chegando ao local do evento, apresentar a equipe técnica aos produtores, indicando quem são os responsáveis técnicos pelo evento.</li>
+                <li>Analisar o local, checar onde serão os portões de acesso, bilheterias e suas necessidades para a operação.</li>
+                <li>Verificar a viabilidade técnica da rede de Internet disponibilizada pelo produtor.</li>
+                <li>Caso algo se encontre fora do padrão solicitado, deve-se refazer a solicitação por escrito via e-mail ou WhatsApp ao contratante, deixando-o ciente do tempo necessário para configuração e testes após a entrega dos itens solicitados.</li>
+            </ul>
+            
+            <h3>Equipamentos de Proteção Individual (EPI's)</h3>
+            <p>Conforme a Norma Regulamentadora 35 (NR-35) define trabalho em altura como toda atividade que é feita acima de dois metros do nível inferior. Sendo assim, o uso de EPI é obrigatório.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Informações Complementares</h2>
+            
+            <h3>Bilheteria:</h3>
+            <ul>
+                <li>Os equipamentos de backup, bobinas e todos os equipamentos que ficarão na bilheteria durante o evento devem ficar em caixa fechada.</li>
+                <li>Para eventos com duração superior a um dia, após o encerramento da bilheteria, todos os equipamentos devem ser conferidos, desligados corretamente e armazenados em local seguro. "Sempre colocar para recarregar".</li>
+                <li>Não devem ser entregues relatórios diretamente aos caixas.</li>
+                <li>A emissão de relatórios será realizada somente pelo Técnico Responsável do evento.</li>
+                <li>Cancelamentos devem ser realizados somente com a aprovação do responsável do evento.</li>
+            </ul>
+            
+            <h3>Validação:</h3>
+            <ul>
+                <li>Em eventos com duração superior a um dia, ao término da validação, conferir e armazenar todos os equipamentos em local seguro. "Sempre colocar para recarregar".</li>
+                <li>É terminantemente proibida a liberação de pessoas sem o ingresso. Esta liberação é realizada pelo responsável do evento.</li>
+                <li>Em caso de ingressos com falha de leitura, digitar o CPF do cliente no validador para a liberação do mesmo.</li>
+            </ul>
+            
+            <h3>É importante ficar atento aos seguintes itens:</h3>
+            <div class="grid">
+                <div>
+                    <ul>
+                        <li>Configuração dos validadores e equipamentos de venda</li>
+                        <li>Leitura dos Ingressos</li>
+                        <li>Tipos de mensagens</li>
+                        <li>Bobina</li>
+                        <li>Identificar falhas</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>Identificar fraudes</li>
+                        <li>Testes Finais</li>
+                        <li>Teste de Rede</li>
+                        <li>Teste de Validação</li>
+                        <li>Teste de Bilheteria</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>Teste de credenciamento e ingressos especiais</li>
+                        <li>Logística do Evento</li>
+                        <li>Lista de Materiais</li>
+                        <li>Recarregadores</li>
+                        <li>Disposição da equipe nas portarias</li>
+                        <li>Relatórios</li>
+                        <li>Encerramento do Evento "Desmontagem"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 Ingressos Web - Todos os direitos reservados</p>
+            <p>Treinamento Técnico e de Relacionamento com Clientes</p>
+        </div>
+    </footer>
+    
+    <div class="download-btn" id="downloadBtn">
+        <i class="fas fa-download"></i>
+        <span class="tooltip">Baixar Material</span>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Botão de download
+            const downloadBtn = document.getElementById('downloadBtn');
+            
+            downloadBtn.addEventListener('click', function() {
+                // Criar um blob com o conteúdo HTML
+                const content = document.documentElement.outerHTML;
+                const blob = new Blob([content], { type: 'text/html' });
+                
+                // Criar link de download
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'Treinamento_Ingressos_Web.html';
+                
+                // Disparar o download
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+            
+            // Adicionar Font Awesome (se necessário)
+            const fontAwesome = document.createElement('link');
+            fontAwesome.rel = 'stylesheet';
+            fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
+            document.head.appendChild(fontAwesome);
+        });
+    </script>
+</body>
+</html>
