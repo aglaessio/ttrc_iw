@@ -196,6 +196,83 @@
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
+        /* Seção Expansível */
+        .expandable-section {
+            margin: 20px 0;
+        }
+        
+        .expand-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .expand-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .expand-icon {
+            transition: transform 0.3s;
+        }
+        
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .expandable-section.active .expandable-content {
+            max-height: 1000px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            border-top: none;
+        }
+        
+        .expandable-section.active .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .importance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .importance-column h4 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .importance-column h4 i {
+            margin-right: 10px;
+        }
+        
+        .importance-item {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .importance-item h5 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
         /* Tabelas */
         table {
             width: 100%;
@@ -280,13 +357,17 @@
             .grid {
                 grid-template-columns: 1fr;
             }
+
+            .importance-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="https://ingressosweb.com.br/brand/logo-horizontal-white.png" alt="Ingressos Web" class="logo">
+            <img src="https://ingressosweb.com.br/img/logo-light.13bb4c96.png" alt="Ingressos Web" class="logo" style="max-width: 140px; margin-bottom: 20px;">
             <h1>Treinamento Técnico e de Relacionamento</h1>
             <p class="subtitle">Padrões de Excelência em Operações e Atendimento</p>
         </div>
@@ -347,8 +428,57 @@
             <p>Muitas dessas regras não são impositivas, porém, os conceitos comportamentais visam contribuir para a qualidade na prestação do serviço aos nossos clientes, parceiros e colaboradores.</p>
             
             <div class="highlight">
-                <h4>Qual a importância dessas regras para o nosso cliente?</h4>
-                <h4>Qual a importância dessas regras para a empresa?</h4>
+                <div class="expandable-section">
+                    <button class="expand-btn">
+                        <i class="fas fa-info-circle"></i> Importância das Regras
+                        <i class="fas fa-chevron-down expand-icon"></i>
+                    </button>
+                    <div class="expandable-content">
+                        <div class="importance-grid">
+                            <div class="importance-column">
+                                <h4><i class="fas fa-user-tie"></i> Para o Cliente</h4>
+                                <div class="importance-item">
+                                    <h5>Experiência Consistente e Profissional</h5>
+                                    <p>Garante um atendimento padronizado e de qualidade em todos os eventos. O cliente percebe organização, eficiência e respeito.</p>
+                                </div>
+                                <div class="importance-item">
+                                    <h5>Segurança e Confiança</h5>
+                                    <p>Regras como pontualidade e postura profissional transmitem credibilidade. O cliente se sente seguro ao lidar com nossa equipe.</p>
+                                </div>
+                                <div class="importance-item">
+                                    <h5>Resolução Ágil de Problemas</h5>
+                                    <p>Profissionais proativos resolvem questões rapidamente, evitando frustrações.</p>
+                                </div>
+                                <div class="importance-item">
+                                    <h5>Imagem Positiva da Marca</h5>
+                                    <p>Atendimento cortês e empático cria conexões emocionais, fidelizando o cliente.</p>
+                                </div>
+                            </div>
+                            <div class="importance-column">
+                                <h4><i class="fas fa-building"></i> Para a Empresa</h4>
+                                <div class="importance-item">
+                                    <h5>Padronização Operacional</h5>
+                                    <p>Uniformiza processos, reduzindo erros e aumentando a eficiência.</p>
+                                </div>
+                                <div class="importance-item">
+                                    <h5>Proteção da Marca</h5>
+                                    <p>Evita comportamentos que possam prejudicar nossa imagem.</p>
+                                </div>
+                                <div class="importance-item">
+                                    <h5>Ambiente de Trabalho Harmonioso</h5>
+                                    <p>Regras claras promovem cooperação entre a equipe.</p>
+                                </div>
+                                <div class="importance-item">
+                                    <h5>Diferencial Competitivo</h5>
+                                    <p>Clientes satisfeitos se tornam promotores da marca.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quote">
+                            <p><strong>Resumo:</strong> Para o cliente, as regras garantem qualidade e confiança; para a empresa, são estratégicas — protegem a marca, otimizam operações e criam vantagens no mercado.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <h3>Para o cliente, a empresa é tudo aquilo que você faz...</h3>
@@ -565,16 +695,16 @@
 
     <footer>
         <div class="footer-content container">
-            <img src="https://ingressosweb.com.br/brand/logo-horizontal-white.png" alt="Ingressos Web" style="max-width: 200px; margin-bottom: 20px;">
-            <p>© 2023 Ingressos Web - Todos os direitos reservados</p>
+            <img src="https://ingressosweb.com.br/img/logo-light.13bb4c96.png" alt="Ingressos Web" style="max-width: 80px; margin-bottom: 20px;">
+            <p>© 2025 Ingressos Web - Todos os direitos reservados</p>
             <p>Treinamento Técnico e de Relacionamento com Clientes</p>
             
-            <div class="social-links">
+            <!-- <div class="social-links">
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-youtube"></i></a>
                 <a href="#"><i class="fab fa-facebook"></i></a>
-            </div>
+            </div> -->
         </div>
     </footer>
 
@@ -606,6 +736,14 @@
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(card);
+        });
+
+        // Seção expansível
+        document.querySelectorAll('.expand-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const section = this.closest('.expandable-section');
+                section.classList.toggle('active');
+            });
         });
     </script>
 </body>
